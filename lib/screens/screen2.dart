@@ -10,6 +10,11 @@ class Screen2 extends StatelessWidget {
         child: Column(
           children: [
             Text('This is a new screen', style: TextStyle(fontSize: 24.0),),
+            Image(width: 100, image: NetworkImage('https://ioe.hse.ru/data/2018/08/03/1152001746/3classroom.jpg')),
+            Image(width: 100, image: NetworkImage('https://ioe.hse.ru/data/2018/08/03/1152001746/3classroom.jpg')),
+            Image(width: 100, image: NetworkImage('https://ioe.hse.ru/data/2018/08/03/1152001746/3classroom.jpg')),
+            Image(width: 100, image: NetworkImage('https://ioe.hse.ru/data/2018/08/03/1152001746/3classroom.jpg')),
+            Image(width: 100, image: NetworkImage('https://ioe.hse.ru/data/2018/08/03/1152001746/3classroom.jpg')),
             TextButton(
               style: TextButton.styleFrom(
                   foregroundColor: Colors.white,
