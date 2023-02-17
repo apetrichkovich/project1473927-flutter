@@ -24,13 +24,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Screen1(title: 'Экран 1'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class Screen1 extends StatefulWidget {
+  const Screen1({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -44,10 +44,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Screen1> createState() => _Screen1State();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _Screen1State extends State<Screen1> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -116,10 +116,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 )),
                 TextButton(
                   style: TextButton.styleFrom(
-                    foregroundColor: Colors.pink,
-                    backgroundColor: Colors.grey
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue
                   ),
-                  child: Text('SignUp', style: TextStyle(fontSize: 20.0),),
+                  child: Text('OK', style: TextStyle(fontSize: 20.0),),
                   onPressed: () {
                     _navigateToNextScreen(context);
                   },
@@ -137,21 +137,70 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _navigateToNextScreen(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen()));
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Screen2()));
   }
 }
 
-class NewScreen extends StatelessWidget {
+class Screen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('New Screen')),
-      body: const Center(
-        child: Text(
-          'This is a new screen',
-          style: TextStyle(fontSize: 24.0),
+      appBar: AppBar(title: const Text('Экран 2')),
+      body: Center(
+        child: Column(
+          children: [
+            Text('This is a new screen', style: TextStyle(fontSize: 24.0),),
+            TextButton(
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.blue
+              ),
+              child: Text('Описание', style: TextStyle(fontSize: 20.0),),
+              onPressed: () {
+                _navigateToNextScreen(context);
+              },
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  void _navigateToNextScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Screen3()));
+  }
+}
+
+class Screen3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Экран 3')),
+      body: Center(
+        child: Column(
+          children: [
+            Text('Описание 1', style: TextStyle(fontSize: 24.0),),
+            Text('Описание 2', style: TextStyle(fontSize: 24.0),),
+            Text('Описание 3', style: TextStyle(fontSize: 24.0),),
+            Text('Описание 4', style: TextStyle(fontSize: 24.0),),
+            Text('Описание 5', style: TextStyle(fontSize: 24.0),),
+            TextButton(
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.blue
+              ),
+              child: Text('Ещё раз', style: TextStyle(fontSize: 20.0),),
+              onPressed: () {
+                _navigateToNextScreen(context);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _navigateToNextScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Screen1(title: 'Экран 1',)));
   }
 }
